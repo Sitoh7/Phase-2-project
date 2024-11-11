@@ -21,7 +21,7 @@ function NavBar(){
           <a class="nav-link"  href="#">Check Out</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Wish List</a>
+          <a class="nav-link" href="#">Saved Items</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Account</a>

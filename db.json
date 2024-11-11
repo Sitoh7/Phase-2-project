@@ -1,0 +1,125 @@
+{
+    "carParts": [
+      {
+        "id": 1,
+        "name": "Brake Pads",
+        "price": 30.99,
+        "image": "https://example.com/images/brake-pads.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Air Filter",
+        "price": 15.49,
+        "image": "https://example.com/images/air-filter.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Oil Filter",
+        "price": 8.99,
+        "image": "https://example.com/images/oil-filter.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Spark Plug",
+        "price": 5.99,
+        "image": "https://example.com/images/spark-plug.jpg"
+      },
+      {
+        "id": 5,
+        "name": "Alternator",
+        "price": 120.00,
+        "image": "https://example.com/images/alternator.jpg"
+      },
+      {
+        "id": 6,
+        "name": "Battery",
+        "price": 89.99,
+        "image": "https://example.com/images/battery.jpg"
+      },
+      {
+        "id": 7,
+        "name": "Radiator",
+        "price": 150.00,
+        "image": "https://example.com/images/radiator.jpg"
+      },
+      {
+        "id": 8,
+        "name": "Headlight Bulb",
+        "price": 12.99,
+        "image": "https://example.com/images/headlight-bulb.jpg"
+      },
+      {
+        "id": 9,
+        "name": "Windshield Wipers",
+        "price": 25.00,
+        "image": "https://example.com/images/windshield-wipers.jpg"
+      },
+      {
+        "id": 10,
+        "name": "Timing Belt",
+        "price": 45.00,
+        "image": "https://example.com/images/timing-belt.jpg"
+      },
+      {
+        "id": 11,
+        "name": "Fuel Pump",
+        "price": 98.99,
+        "image": "https://example.com/images/fuel-pump.jpg"
+      },
+      {
+        "id": 12,
+        "name": "Water Pump",
+        "price": 55.49,
+        "image": "https://example.com/images/water-pump.jpg"
+      },
+      {
+        "id": 13,
+        "name": "Radiator Hose",
+        "price": 18.75,
+        "image": "https://example.com/images/radiator-hose.jpg"
+      },
+      {
+        "id": 14,
+        "name": "Shock Absorber",
+        "price": 65.00,
+        "image": "https://example.com/images/shock-absorber.jpg"
+      },
+      {
+        "id": 15,
+        "name": "Control Arm",
+        "price": 75.50,
+        "image": "https://example.com/images/control-arm.jpg"
+      },
+      {
+        "id": 16,
+        "name": "Ignition Coil",
+        "price": 35.99,
+        "image": "https://example.com/images/ignition-coil.jpg"
+      },
+      {
+        "id": 17,
+        "name": "Throttle Body",
+        "price": 110.00,
+        "image": "https://example.com/images/throttle-body.jpg"
+      },
+      {
+        "id": 18,
+        "name": "Fuel Injector",
+        "price": 45.99,
+        "image": "https://example.com/images/fuel-injector.jpg"
+      },
+      {
+        "id": 19,
+        "name": "AC Compressor",
+        "price": 190.00,
+        "image": "https://example.com/images/ac-compressor.jpg"
+      },
+      {
+        "id": 20,
+        "name": "Catalytic Converter",
+        "price": 250.00,
+        "image": "https://example.com/images/catalytic-converter.jpg"
+      }
+    ]
+  }
+  

@@ -18,11 +18,9 @@ function NavBar(){
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link"  href="#">Check Out</a>
+          <a class="nav-link"  href="#">Cart</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Saved Items</a>
-        </li>
+        
         <li class="nav-item">
           <a class="nav-link" href="#">Account</a>
         </li>

@@ -1,5 +1,5 @@
 
-function ItemCard({name,price,image}){
+function ItemCard({name,price,image,toCart,id}){
 
     return(
         <div >
@@ -7,7 +7,7 @@ function ItemCard({name,price,image}){
         <h1 style={{fontSize:"20px",}}>{name}</h1>
         <img src={image} style={{ height: "150px", borderRadius:"5px", }} alt={name}/>
         <p>{`$ ${price}`}</p>
-       <button>Add To Cart🛒</button>
+       <button onClick={()=>toCart(name,image,price,id)}>Add To Cart🛒</button>
         </div>
         )
 }

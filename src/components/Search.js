@@ -1,14 +1,14 @@
 import React,{useState,useEffect} from "react";
 
-function Search({plantSearch}) {
+function Search({partSearch}) {
 
 const [search,setSearch] = useState("")
 
 
-// useEffect(()=>{
-//   plantSearch(search)
+useEffect(()=>{
+    partSearch(search)
 
-// },[search])
+},[search])
 
 
   return (

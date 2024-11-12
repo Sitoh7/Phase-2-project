@@ -1,4 +1,4 @@
-
+import { NavLink } from "react-router-dom";
 
 function NavBar(){
     return(<>
@@ -11,16 +11,19 @@ function NavBar(){
   
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
+  <NavLink to="/">
     <a class="navbar-brand" href="#">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    </NavLink>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
+      <NavLink to="/cart">
         <li class="nav-item">
           <a class="nav-link"  href="#">Cart</a>
         </li>
-        
+        </NavLink>
         <li class="nav-item">
           <a class="nav-link" href="#">Account</a>
         </li>

@@ -6,7 +6,7 @@ import Parts from "../components/Parts"
 function Home(){
        
 const[carParts, setCarParts] = useState([]);
-const[cartItems, setCartItems] = useState([])
+
 
 
 function fetchParts(){

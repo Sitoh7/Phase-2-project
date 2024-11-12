@@ -1,6 +1,8 @@
 import ItemCard from "../components/ItemCard"
 
-function Parts({carParts}){
+function Parts({carParts,confirmItem}){
+
+    
 
     function toCart(name,image,price,id){
 
@@ -20,6 +22,7 @@ function Parts({carParts}){
         body: JSON.stringify(cartItem)
     })
 
+    confirmItem()
 }
 
 if (carParts.length === 0) return <h1>Loading...</h1>

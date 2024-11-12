@@ -6,7 +6,7 @@ import Parts from "../components/Parts"
 function Home(){
        
 const[carParts, setCarParts] = useState([]);
-
+const [showPopup, setShowPopup] = useState(false);
 
 
 function fetchParts(){
@@ -32,16 +32,23 @@ useEffect(()=>{
 
     }
 
- //if(!carParts) return <h1>Loading ...</h1>
 
-  
+  function confirmItem(){
+    setShowPopup(true);
+    setTimeout(() => setShowPopup(false), 2000);
+  }
 
 
     return(<>
     
-    <Search partSearch={partSearch}/>
+    <Search partSearch={partSearch}  />
      <Outlet/>   
-    <Parts carParts={carParts} />  
+    <Parts carParts={carParts} confirmItem={confirmItem}/>  
+    {showPopup && (
+                <div style={{ position: "fixed", top: "20px", right: "20px", background: "#333", color: "#fff", padding: "10px", borderRadius: "5px" }}>
+                    Item added to cart
+                </div>
+            )}
     </>)
 }
 

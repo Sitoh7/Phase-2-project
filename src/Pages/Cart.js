@@ -24,8 +24,8 @@ function removeCart(id){
     .then(()=>fetchCart())
 }
 
-     function updateTotal(x){
-        setSubTotal(subtotal+x)
+     function updateTotal(price){
+        setSubTotal(subtotal+price)
     }
     
     let tax = Math.floor(subtotal*0.15)
@@ -35,12 +35,14 @@ function removeCart(id){
     return(<>
     <h1>Cart:</h1>
     {cartItems.map(item=>{return <CartItem key={item.id} name={item.name} image={item.image} price={item.price} id={item.id} removeCart={removeCart} updateTotal={updateTotal}/>})}
-   <div>
+    {cartItems.length === 0 ? <h1>Your Cart is Empty</h1> : null}
+    <div style={{visibility: cartItems.length === 0 ? "hidden" : "visible"}}>
+  
         <p>Order Summary</p>
-        <p>Subtotal:{Math.round(subtotal * 100) / 100}</p>
-        <p>Tax:{tax}</p>
-        <p>Shipping:{Shipping}</p>
-        <p>Total:{Math.round((subtotal+tax+Shipping) * 100) / 100}</p>
+        <p>Subtotal:${Math.round(subtotal * 100) / 100}</p>
+        <p>Tax:${tax}</p>
+        <p>Shipping:${Shipping}</p>
+        <p>Total:${Math.round((subtotal+tax+Shipping) * 100) / 100}</p>
 
    </div>
    

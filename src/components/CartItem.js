@@ -7,7 +7,7 @@ function CartItems({name,image,price,id,removeCart,updateTotal}){
     let total = quantity*price
     
     useEffect(()=>{
-        updateTotal(total)
+        updateTotal(price)
     },[total])
 
 return(<>

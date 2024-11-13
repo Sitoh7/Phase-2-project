@@ -26,6 +26,7 @@ function removeCart(id){
 
      function updateTotal(price){
         setSubTotal(subtotal+price)
+        
     }
     
     let tax = Math.floor(subtotal*0.15)

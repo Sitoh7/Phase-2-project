@@ -1,38 +1,51 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from 'react-router-dom';
 
-function NavBar(){
-    return(<>
-    <div className="container">
-      <div className="row">
-        <div className="col-md-12">
-  </div>
-  </div>
-  </div>
-  
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <div class="container-fluid">
-  <NavLink to="/">
-    <a class="navbar-brand" href="#">Home</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    </NavLink>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-      <NavLink to="/cart">
-        <li class="nav-item">
-          <a class="nav-link"  href="#">Cart</a>
-        </li>
+function NavBar() {
+  const navigate = useNavigate();
+  const isAuthenticated = localStorage.getItem('auth') === 'true';
+
+  const handleLogout = () => {
+    localStorage.removeItem('auth');
+    navigate('/login');
+  };
+
+  return (
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div className="container-fluid">
+        <NavLink to="/">
+          <span className="navbar-brand">Home</span>
         </NavLink>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Account</a>
-        </li>
-       
-      </ul>
-    </div>
-  </div>
-</nav>
-    </>)
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+            <NavLink to="/cart">
+              <li className="nav-item">
+                <span className="nav-link">Cart</span>
+              </li>
+            </NavLink>
+            <NavLink to="/account">
+              <li className="nav-item">
+                <span className="nav-link">Account</span>
+              </li>
+            </NavLink>
+            {isAuthenticated ? (
+              <li className="nav-item">
+                <button className="nav-link" onClick={handleLogout}>Logout</button>
+              </li>
+            ) : (
+              <NavLink to="/login">
+                <li className="nav-item">
+                  <span className="nav-link">Login</span>
+                </li>
+              </NavLink>
+            )}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
 }
 
-export default NavBar
+export default NavBar;

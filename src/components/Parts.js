@@ -14,7 +14,7 @@ function Parts({carParts,confirmItem}){
 
     }
 
-    fetch(`http://localhost:3000/Cart`,{
+    fetch(`https://json-server-template-1-57bu.onrender.com/Cart`,{
         method:"POST",
         headers: {
             "Content-Type":"application/json"

@@ -1,3 +1,4 @@
+// ./Pages/Login.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,7 +10,7 @@ function Login() {
   const handleLogin = () => {
     if (username && password) {
       localStorage.setItem('auth', 'true');
-      navigate('/home');
+      navigate('/home');  // Redirects to home after login
     }
   };
 
@@ -34,4 +35,3 @@ function Login() {
 }
 
 export default Login;
-

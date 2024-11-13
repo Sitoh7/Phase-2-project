@@ -15,34 +15,19 @@ function NavBar() {
         <NavLink to="/">
           <span className="navbar-brand">Home</span>
         </NavLink>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
-            <NavLink to="/cart">
-              <li className="nav-item">
-                <span className="nav-link">Cart</span>
-              </li>
-            </NavLink>
-            <NavLink to="/account">
-              <li className="nav-item">
-                <span className="nav-link">Account</span>
-              </li>
-            </NavLink>
-            {isAuthenticated ? (
-              <li className="nav-item">
-                <button className="nav-link" onClick={handleLogout}>Logout</button>
-              </li>
-            ) : (
-              <NavLink to="/login">
-                <li className="nav-item">
-                  <span className="nav-link">Login</span>
-                </li>
-              </NavLink>
-            )}
-          </ul>
-        </div>
+        <NavLink to="/cart">
+          <span className="nav-link">Cart</span>
+        </NavLink>
+        <NavLink to="/account">
+          <span className="nav-link">Account</span>
+        </NavLink>
+        {isAuthenticated ? (
+          <button className="nav-link" onClick={handleLogout}>Logout</button>
+        ) : (
+          <NavLink to="/login">
+            <span className="nav-link">Login</span>
+          </NavLink>
+        )}
       </div>
     </nav>
   );

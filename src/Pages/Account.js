@@ -1,95 +1,90 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const AccountSection = () => {
-  const [formData, setFormData] = useState({
+function Account() {
+  const [userData, setUserData] = useState({
     name: '',
     email: '',
-    location: '',
+    address: '',
+    deliveryOption: 'standard',
   });
 
-  const [errors, setErrors] = useState({});
+  useEffect(() => {
+    // Load saved data from localStorage if it exists
+    const savedData = localStorage.getItem('userData');
+    if (savedData) {
+      setUserData(JSON.parse(savedData));
+    }
+  }, []);
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    // Basic validation (can be more extensive)
-    const error = value.trim() === '' ? 'Field is required' : '';
-    setErrors({ ...errors, [name]: error });
-
-    setFormData({ ...formData, [name]: value });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    // More advanced validation and error handling can be added here
-
-    // Send data to server (replace with your server-side logic)
-    fetch('/your-api-endpoint', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('Success:', data);
-        // Handle success, e.g., show a success message, redirect
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-        // Handle errors, e.g., show an error message
-      });
-
-    // Clear form after successful submission
-    setFormData({ name: '', email: '', location: '' });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Save data to localStorage
+    localStorage.setItem('userData', JSON.stringify(userData));
+    alert('Your information has been saved successfully.');
   };
 
   return (
-    <div>
-      <h2>Create Account</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Name:</label>
+    <div style={{ padding: '20px', textAlign: 'center' }}>
+      <h2>Account Information</h2>
+      <form onSubmit={handleSubmit} style={{ display: 'inline-block', textAlign: 'left' }}>
+        <div style={{ marginBottom: '10px' }}>
+          <label>Name:</label><br />
           <input
             type="text"
-            id="name"
             name="name"
-            value={formData.name}
+            value={userData.name}
             onChange={handleChange}
+            style={{ padding: '8px', width: '100%' }}
             required
           />
-          {errors.name && <p className="error">{errors.name}</p>}
         </div>
-        <div>
-          <label htmlFor="email">Email:</label>
+        <div style={{ marginBottom: '10px' }}>
+          <label>Email:</label><br />
           <input
             type="email"
-            id="email"
             name="email"
-            value={formData.email}
+            value={userData.email}
             onChange={handleChange}
+            style={{ padding: '8px', width: '100%' }}
             required
           />
-          {errors.email && <p className="error">{errors.email}</p>}
         </div>
-        <div>
-          <label htmlFor="location">Location:</label>
+        <div style={{ marginBottom: '10px' }}>
+          <label>Address:</label><br />
           <input
             type="text"
-            id="location"
-            name="location"
-            value={formData.location}
+            name="address"
+            value={userData.address}
             onChange={handleChange}
-            required
+            style={{ padding: '8px', width: '100%' }}
           />
-          {errors.location && <p className="error">{errors.location}</p>}
         </div>
-        <button type="submit">Submit</button>
+        <div style={{ marginBottom: '10px' }}>
+          <label>Delivery Option:</label><br />
+          <select
+            name="deliveryOption"
+            value={userData.deliveryOption}
+            onChange={handleChange}
+            style={{ padding: '8px', width: '100%' }}
+          >
+            <option value="standard">Standard Delivery</option>
+            <option value="express">Express Delivery</option>
+          </select>
+        </div>
+        <button type="submit" style={{ padding: '10px 20px', backgroundColor: '#007bff', color: 'white', border: 'none', cursor: 'pointer' }}>
+          Save Information
+        </button>
       </form>
     </div>
   );
-};
+}
 
-export default AccountSection;
+export default Account;

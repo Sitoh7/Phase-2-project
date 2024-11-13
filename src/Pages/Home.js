@@ -4,6 +4,7 @@ import ItemCard from '../components/ItemCard';
 import Search from '../components/Search';
 import Parts from '../components/Parts';
 
+
 function Home() {
   const [carParts, setCarParts] = useState([]);
   const [showPopup, setShowPopup] = useState(false);

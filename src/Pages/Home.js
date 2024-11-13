@@ -6,13 +6,16 @@ import Parts from "../components/Parts"
 function Home(){
        
 const[carParts, setCarParts] = useState([]);
+const [allCarParts, setAllCarParts] = useState([]);
 const [showPopup, setShowPopup] = useState(false);
 
 
 function fetchParts(){
 fetch("http://localhost:3000/carParts")
 .then(res => res.json())
-.then(carParts => setCarParts(carParts))
+.then(carParts =>{ setCarParts(carParts)
+                   setAllCarParts(carParts)
+})
 }
 
 useEffect(()=>{
@@ -20,14 +23,16 @@ useEffect(()=>{
 },[])
 
     function partSearch(search){
+      
         console.log(search)
         if(search){
-            const searchedCarParts = carParts.filter(part=>{return part.name.toLowerCase().includes(search.toLowerCase())})
+          
+            const searchedCarParts = allCarParts.filter(part=>{return part.name.toLowerCase().includes(search.toLowerCase())})
             setCarParts(searchedCarParts)
             
           }
           else{
-            fetchParts()
+            setCarParts(allCarParts)
           }
 
     }

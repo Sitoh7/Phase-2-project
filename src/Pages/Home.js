@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Outlet, useOutletContext } from "react-router-dom"
-import ItemCard from "../components/ItemCard"
 import Search from "../components/Search";
 import Parts from "../components/Parts"
 function Home(){

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Account() {
   const [userData, setUserData] = useState({
@@ -7,6 +8,7 @@ function Account() {
     address: '',
     deliveryOption: 'standard',
   });
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Load saved data from localStorage if it exists
@@ -28,7 +30,7 @@ function Account() {
     e.preventDefault();
     // Save data to localStorage
     localStorage.setItem('userData', JSON.stringify(userData));
-    alert('Your information has been saved successfully.');
+     navigate('/');
   };
 
   return (

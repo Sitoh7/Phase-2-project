@@ -10,7 +10,7 @@ function Login() {
   const handleLogin = () => {
     if (username && password) {
       localStorage.setItem('auth', 'true');
-      navigate('/');  // Redirects to home after login
+      navigate('/account');  // Redirects to home after login
     }
   };
 

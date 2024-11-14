@@ -11,7 +11,7 @@ const [noResults, setNoResults] = useState(false);
 
 
 function fetchParts(){
-fetch("http://localhost:3000/carParts")
+fetch("https://json-server-template-1-57bu.onrender.com/carParts")
 .then(res => res.json())
 .then(carParts =>{ setCarParts(carParts)
                    setAllCarParts(carParts)

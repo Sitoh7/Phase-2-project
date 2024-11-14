@@ -27,7 +27,7 @@ function Parts({ carParts }) {
             price: price,
         };
 
-        fetch(`http://localhost:3000/Cart`, {
+        fetch(`https://json-server-template-gada.onrender.com/Cart`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

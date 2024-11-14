@@ -5,7 +5,7 @@ function CartItem({ name, image, price, id, removeCart, updateItemTotal }) {
   const total = quantity * price;
 
   useEffect(() => {
-    updateItemTotal(total);
+    updateItemTotal(total,id);
   }, [total, updateItemTotal]);
 
   function handleQuantityChange (newQuantity){
@@ -15,21 +15,26 @@ function CartItem({ name, image, price, id, removeCart, updateItemTotal }) {
   };
 
   return (
-    <>
-      <p>{name}</p>
-      <img
-        src={image}
-        style={{ height: "150px", borderRadius: "5px" }}
-        alt={name}
-      />
-      <p>${price}</p>
-      <p>Quantity: {quantity}</p>
-      <button onClick={() => handleQuantityChange(quantity + 1)}>+</button>
-      <button onClick={() => handleQuantityChange(quantity - 1)}>-</button>
-      <br /><br />
-      <p>Total: ${Math.round(total * 100) / 100}</p>
-      <button onClick={() => removeCart(id)}>Remove From Cart</button>
-    </>
+    <article >
+      <div className="productInfo">
+        <img
+          src={image}
+          className="productImage"
+          alt={name}
+        />
+        <div className="productDetails">
+          <h2 className="productName">{name}</h2>
+          <p className="productPrice">${price}</p>
+          <p>Quantity: {quantity}</p>
+          <div className="flex items-center gap-1">
+            <button className="productButton px-3 py-1 bg-green-500 hover:bg-green-600 rounded-l" onClick={() => handleQuantityChange(quantity + 1)}>+</button>
+            <button className="productButton px-3 py-1 bg-green-500 hover:bg-green-600 rounded-r border-l border-green-600" onClick={() => handleQuantityChange(quantity - 1)}>-</button>
+          </div>
+          <p className="totalPrice">Total: ${Math.round(total * 100) / 100}</p>
+          <button className="px-4 py-2 bg-green-500 hover:bg-green-600 rounded text-sm" onClick={() => removeCart(id)}>Remove From Cart</button>
+        </div>
+      </div>
+    </article>
   );
 }
 

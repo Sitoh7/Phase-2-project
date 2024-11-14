@@ -13,19 +13,22 @@ function NavBar() {
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <div className="container-fluid">
         <NavLink to="/">
-          <span className="navbar-brand">Home</span>
+          <span className="nav-link">Home</span>
         </NavLink>
         <NavLink to="/cart">
           <span className="nav-link">Cart</span>
         </NavLink>
-        <NavLink to="/account">
-          <span className="nav-link">Account</span>
-        </NavLink>
+        {isAuthenticated && (
+          <NavLink to="/account">
+            <span className="nav-link">Account</span>
+          </NavLink>
+        )}
+      
         {isAuthenticated ? (
-          <button className="nav-link" onClick={handleLogout}>Logout</button>
+          <button className="navbar-brand" onClick={handleLogout}>Logout</button>
         ) : (
           <NavLink to="/login">
-            <span className="nav-link">Login</span>
+            <span className="navbar-brand">Login</span>
           </NavLink>
         )}
       </div>

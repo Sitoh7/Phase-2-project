@@ -7,12 +7,11 @@ function Home(){
        
 const[carParts, setCarParts] = useState([]);
 const [allCarParts, setAllCarParts] = useState([]);
-const [showPopup, setShowPopup] = useState(false);
 const [noResults, setNoResults] = useState(false);
 
 
 function fetchParts(){
-fetch("https://json-server-template-1-57bu.onrender.com/carParts")
+fetch("http://localhost:3000/carParts")
 .then(res => res.json())
 .then(carParts =>{ setCarParts(carParts)
                    setAllCarParts(carParts)
@@ -42,10 +41,7 @@ useEffect(()=>{
     }
 
 
-  function confirmItem(){
-    setShowPopup(true);
-    setTimeout(() => setShowPopup(false), 2000);
-  }
+ 
 
 
     return(<>
@@ -63,13 +59,9 @@ useEffect(()=>{
           Item not found
         </div>
       ) : (
-        <Parts carParts={carParts} confirmItem={confirmItem} />
+        <Parts carParts={carParts}  />
       )}
-    {showPopup && (
-                <div style={{ position: "fixed", top: "20px", right: "20px", background: "#333", color: "#fff", padding: "10px", borderRadius: "5px" }}>
-                    Item added to cart
-                </div>
-            )}
+ 
     </>)
 }
 

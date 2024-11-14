@@ -8,7 +8,7 @@ function Cart() {
   const [cartTotals, setCartTotals] = useState({});
 
   function fetchCart() {
-    fetch("https://json-server-template-1-57bu.onrender.com/Cart")
+    fetch("http://localhost:3000/Cart")
       .then(resp => resp.json())
       .then(cartItems => setCartItems(cartItems));
   }
@@ -16,7 +16,7 @@ function Cart() {
   useEffect(fetchCart, []);
 
   function removeCart(id) {
-    fetch(`https://json-server-template-1-57bu.onrender.com/Cart/${id}`, {
+    fetch(`http://localhost:3000/Cart/${id}`, {
       method: "DELETE",
     })
       .then(() => {

@@ -1,5 +1,7 @@
 import ItemCard from "../components/ItemCard"
 
+import "./LoadingAnimation.css"
+
 function Parts({ carParts }) {
     // Function to show a popup message when an item is added to the cart
     function showPopup(message) {
@@ -27,7 +29,7 @@ function Parts({ carParts }) {
             price: price,
         };
 
-        fetch(`http://localhost:3000/Cart`, {
+        fetch(`https://json-server-template-gada.onrender.com/Cart`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -38,7 +40,16 @@ function Parts({ carParts }) {
         
     }
 
-    if (carParts.length === 0) return <h1>Loading...</h1>;
+    if (carParts.length === 0) {
+        return (
+          <div>
+        
+            <div className="loader">
+          <div className="spinner"></div>
+        </div>
+          </div>
+        );
+      }
 
     return (
         <>

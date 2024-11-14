@@ -5,8 +5,10 @@ function ErrorPage(){
     const error = useRouteError();
   console.error(error);
     return(<>
-   
-        <h1>Oops! Looks like something went wrong.</h1>
+   <div>
+      <h1>Page Not Found</h1>
+      <p>Sorry, the page you are looking for does not exist.</p>
+    </div>
         </>
     )
 }

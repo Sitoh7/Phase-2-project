@@ -6,13 +6,17 @@ import Parts from "../components/Parts"
 function Home(){
        
 const[carParts, setCarParts] = useState([]);
-const [showPopup, setShowPopup] = useState(false);
+const [allCarParts, setAllCarParts] = useState([]);
+const [noResults, setNoResults] = useState(false);
 
 
 function fetchParts(){
-fetch("http://localhost:3000/carParts")
+fetch("https://json-server-template-1-57bu.onrender.com/carParts")
 .then(res => res.json())
-.then(carParts => setCarParts(carParts))
+.then(carParts =>{ setCarParts(carParts)
+                   setAllCarParts(carParts)
+                  setNoResults(false)
+})
 }
 
 useEffect(()=>{
@@ -20,35 +24,44 @@ useEffect(()=>{
 },[])
 
     function partSearch(search){
+      
         console.log(search)
         if(search){
-            const searchedCarParts = carParts.filter(part=>{return part.name.toLowerCase().includes(search.toLowerCase())})
+          
+            const searchedCarParts = allCarParts.filter(part=>{return part.name.toLowerCase().includes(search.toLowerCase())})
             setCarParts(searchedCarParts)
+            setNoResults(searchedCarParts.length === 0)
             
           }
           else{
-            fetchParts()
+            setCarParts(allCarParts)
+            setNoResults(false);
           }
 
     }
 
 
-  function confirmItem(){
-    setShowPopup(true);
-    setTimeout(() => setShowPopup(false), 2000);
-  }
+ 
 
 
     return(<>
     
     <Search partSearch={partSearch}  />
      <Outlet/>   
-    <Parts carParts={carParts} confirmItem={confirmItem}/>  
-    {showPopup && (
-                <div style={{ position: "fixed", top: "20px", right: "20px", background: "#333", color: "#fff", padding: "10px", borderRadius: "5px" }}>
-                    Item added to cart
-                </div>
-            )}
+     {noResults ? (
+        <div style={{
+          textAlign: 'center',
+          padding: '20px',
+          marginTop: '20px',
+          fontSize: '1.2rem',
+          color: '#666'
+        }}>
+          Item not found
+        </div>
+      ) : (
+        <Parts carParts={carParts}  />
+      )}
+ 
     </>)
 }
 
